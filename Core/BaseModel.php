@@ -24,6 +24,16 @@ abstract class BaseModel {
         return $result;
     }
 
+    public function find($id) {
+        $query = "SELECT * FROM {$this->table} WHERE id=:id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $stmt->closeCursor();
+        return $result;
+    }
+
     public function Inserir($id, $nome, $email) {
         $query = "INSERT INTO {$this->table} (id, nome, email) VALUES ('{$id}', '{$nome}', '{$email}')";
         $stmt = $this->pdo->prepare($query);

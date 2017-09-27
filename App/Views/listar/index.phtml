@@ -13,7 +13,7 @@
             foreach ($this->view->posts as $val) {
                 $tr .= "<tr>";
                 $tr .= "<td>{$val->id}</td>";
-                $tr .= "<td>{$val->nome}</td>";
+                $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
                 $tr .= "<td>{$val->email}</td>";
                 $tr .= "</tr>";
             }

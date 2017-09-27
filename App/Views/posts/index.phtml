@@ -1,27 +1,31 @@
-<div class="col-md-12">
-    <?php if ($this->view->result == true) { ?>
-        <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4>Alert!</h4>
-            <strong>Sucesso!</strong> Contato salvo.
-        </div>
-    <?php } else { ?>
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4>Alert!</h4>
-            <strong>Erro!</strong> Contato não salvo.
-        </div>
-    <?php } ?>
+<div class="col-12">
+    <?php if (isset($this->view->result)) { ?>
+        <?php if ($this->view->result == true) { ?>
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>Alert!</h4>
+                <strong>Sucesso!</strong> Contato salvo.
+            </div>
+        <?php } else { ?>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>Alert!</h4>
+                <strong>Erro!</strong> Contato não salvo.
+            </div>
+    <?php
+        }
+    }
+    ?>
 </div>
-<div class="col-md-4 col-sm-4">
+<div class="col-4 col-sm-4">
     <div class="well well-sm alert-info">
+    <div class="form-group ">
+            <label for="idade">Id:</label>
+            <input type="text" class="form-control" id="id">
+        </div>
         <div class="form-group ">
             <label for="nome">Nome:</label>
             <input type="text" class="form-control" id="nome">
-        </div>
-        <div class="form-group ">
-            <label for="idade">Idade:</label>
-            <input type="text" class="form-control" id="idade">
         </div>
         <div class="form-group ">
             <label for="email">E-Mail</label>
@@ -32,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-8 col-sm-8">
+<div class="col-8 col-sm-8">
     <div class="well well-sm" style="background-color: #FFF !important;">
         <div class="table-responsive">
             <table class="table table-striped">
@@ -43,13 +47,13 @@
                         <th>E-Mail</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="tbody-posts">
                     <?php
                     $tr = '';
                     foreach ($this->view->posts as $val) {
-                        $tr .= "<tr>";
+                        $tr .= "<tr class=\"tr-posts\" id=\"{$val->id}\">";
                         $tr .= "<td>{$val->id}</td>";
-                        $tr .= "<td>{$val->nome}</td>";
+                        $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
                         $tr .= "<td>{$val->email}</td>";
                         $tr .= "</tr>";
                     }

@@ -51,4 +51,18 @@ abstract class BaseController {
         }
     }
 
+    protected function getCSS() {
+        echo "/assets/css/style.css";
+    }
+
+    protected function getJS() {
+        $arrayJS = [
+            'jquery' => '<script src="assets/js/jquery.min.js"></script>',
+            'bootstrap' => '<script src="assets/js/bootstrap.min.js"></script>'
+        ];
+        foreach ($arrayJS as $value) {
+            echo $value;
+        }
+    }
+
 }

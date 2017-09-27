@@ -6,7 +6,7 @@ use PDO;
 
 class DataBase {
 
-    public function getDataBase() {
+    public static function getDataBase() {
         $conf = include(__DIR__ . "/../App/database.php");
         if ($conf['drive'] == 'sqlite') {
         	$sqlite = (__DIR__ . "/../storage/database/" . $conf['sqlite']['host']);

@@ -1,5 +1,5 @@
 @echo off
 
-php -S localhost:8080 -t public
+php -S 192.168.0.10:8080 -t public
 
 pause

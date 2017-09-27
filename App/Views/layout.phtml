@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php $this->getPageTitle('|'); ?>Micro Framework</title>
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="<?php $this->getCSS(); ?>" rel="stylesheet">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -45,12 +45,39 @@
             </div>
         </div>
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
+        <?php $this->getJS(); ?>
         <script type="text/javascript">
             $(document).ready(function() {
                 $("table thead tr th:nth-child(2)").addClass('hidden-sm hidden-xs');
                 $("table tbody tr td:nth-child(2)").addClass('hidden-sm hidden-xs');
+                $(document).on("click", ".tbody-posts .tr-posts", function() {
+                    var idPost = $(this).attr('id');
+                    var url = 'Ajax/PostsController.php';
+                    var dados_post = 'acao=show' + '&id=' + idPost;
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: dados_post,
+                        dataType: 'json',
+                        beforeSend: function() {
+
+                        },
+                        success: function(data) {
+                            console.log(data);
+                            $.each(data.dados, function(i, val) {
+                                $('#id').val(data.dados[i].id);
+                                $('#nome').val(data.dados[i].nome);
+                                $('#email').val(data.dados[i].email);
+                            });
+                        },
+                        error: function(data) {
+                            console.log(data);
+                            $('#id').val('Erro! Contate o Administrador do Sistemas.');
+                            $('#nome').val('Erro! Contate o Administrador do Sistemas.');
+                            $('#email').val('Erro! Contate o Administrador do Sistemas.');
+                        }
+                    });
+                });
             });
         </script>
     </body>
