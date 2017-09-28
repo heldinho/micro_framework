@@ -28,7 +28,7 @@ class Route {
         foreach ($_POST as $key => $value) {
             $obj->post->$key = $value;
         }
-        return $obj;
+        return @$obj;
     }
 
     private function getUrl() {

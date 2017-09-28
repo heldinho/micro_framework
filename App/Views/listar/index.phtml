@@ -9,15 +9,15 @@
         </thead>
         <tbody>
             <?php
-            $tr = '';
-            foreach ($this->view->posts as $val) {
-                $tr .= "<tr>";
-                $tr .= "<td>{$val->id}</td>";
-                $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
-                $tr .= "<td>{$val->email}</td>";
-                $tr .= "</tr>";
-            }
-            echo $tr;
+                $tr = '';
+                foreach ($this->view->posts as $val) {
+                    $tr .= "<tr>";
+                    $tr .= "<td>{$val->id}</td>";
+                    $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
+                    $tr .= "<td>{$val->email}</td>";
+                    $tr .= "</tr>";
+                }
+                echo $tr;
             ?>
         </tbody>
     </table>
