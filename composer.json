@@ -1,18 +1,21 @@
 {
-	"name": "hfp/microframework",
-	"Description": "Micro Framework PHP MVC",
-	"license": "MIT",
-	"type": "project",
-	"authors": [
-		{"name": "Helder Passos", "email": "helderferreirapassos@gmail.com"}
-	],
-  	"autoload":{
-    	"psr-4":{
-      		"App\\": "App/",
-      		"Core\\": "Core/"
-    	}
-  	},
-  	"require":{
-  		"php": ">=5.4"
-  	}
+    "name": "hfp/microframework",
+    "Description": "Micro Framework PHP MVC",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Helder Passos",
+            "email": "helderferreirapassos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Core\\": "Core/"
+        }
+    },
+    "require": {
+        "php": ">=5.4"
+    }
 }

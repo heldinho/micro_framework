@@ -2,18 +2,21 @@
 
 namespace Core;
 
-abstract class BaseController {
+abstract class BaseController
+{
 
     protected $view;
     private $ViewPath;
     private $LayoutPath;
     private $pageTitle = null;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->view = new \stdClass;
     }
 
-    protected function renderView($viewPath, $layoutPath = null) {
+    protected function renderView($viewPath, $layoutPath = null)
+    {
         $this->ViewPath = $viewPath;
         $this->LayoutPath = $layoutPath;
         if ($layoutPath) {
@@ -23,15 +26,8 @@ abstract class BaseController {
         }
     }
 
-    protected function content() {
-        if (file_exists(__DIR__ . "/../App/Views/{$this->ViewPath}.phtml")) {
-            require(__DIR__ . "/../App/Views/{$this->ViewPath}.phtml");
-        } else {
-            echo "Error: View path not found!";
-        }
-    }
-
-    protected function layout() {
+    protected function layout()
+    {
         if (file_exists(__DIR__ . "/../App/Views/{$this->LayoutPath}.phtml")) {
             require(__DIR__ . "/../App/Views/{$this->LayoutPath}.phtml");
         } else {
@@ -39,11 +35,17 @@ abstract class BaseController {
         }
     }
 
-    protected function setPageTitle($pageTitle) {
-        $this->pageTitle = $pageTitle;
+    protected function content()
+    {
+        if (file_exists(__DIR__ . "/../App/Views/{$this->ViewPath}.phtml")) {
+            require(__DIR__ . "/../App/Views/{$this->ViewPath}.phtml");
+        } else {
+            echo "Error: View path not found!";
+        }
     }
 
-    protected function getPageTitle($separator = null) {
+    protected function getPageTitle($separator = null)
+    {
         if (isset($separator)) {
             echo $this->pageTitle . ' ' . $separator . ' ';
         } else {
@@ -51,11 +53,18 @@ abstract class BaseController {
         }
     }
 
-    protected function getCSS() {
+    protected function setPageTitle($pageTitle)
+    {
+        $this->pageTitle = $pageTitle;
+    }
+
+    protected function getCSS()
+    {
         echo "/assets/css/style.css";
     }
 
-    protected function getJS() {
+    protected function getJS()
+    {
         $arrayJS = [
             'jquery' => '<script src="assets/js/jquery.min.js"></script>',
             'bootstrap' => '<script src="assets/js/bootstrap.min.js"></script>'

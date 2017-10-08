@@ -5,9 +5,11 @@ namespace App\Controllers;
 use Core\BaseController;
 use Core\Container;
 
-class ListarController extends BaseController {
+class ListarController extends BaseController
+{
 
-    public function index() {
+    public function index()
+    {
         $this->setPageTitle('Listar');
 
         $model = Container::getModel("Post");

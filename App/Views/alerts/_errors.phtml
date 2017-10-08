@@ -1,0 +1,8 @@
+<?php if (isset($this->view->errors)) { ?>
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <?php foreach ($this->view->errors as $msg) { ?>
+            <p><?php echo $msg; ?></p>
+        <?php } ?>
+    </div>
+<?php } ?>

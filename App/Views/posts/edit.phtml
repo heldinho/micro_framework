@@ -1,0 +1,25 @@
+<div class="col-12">
+    <div class="well well-sm alert-info">
+        <form action="/post/<?php echo $this->view->post->id; ?>/update" method="post" accept-charset="utf-8">
+            <div class="form-group ">
+                <label for="idade">Id:</label>
+                <input type="text" class="form-control input-sm" id="id" value="<?php echo $this->view->post->id; ?>"
+                       disabled="disabled">
+            </div>
+            <div class="form-group ">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control input-sm" id="nome" name="nome"
+                       value="<?php echo $this->view->post->nome; ?>">
+            </div>
+            <div class="form-group ">
+                <label for="email">E-Mail</label>
+                <input type="text" class="form-control input-sm" id="email" name="email"
+                       value="<?php echo $this->view->post->email; ?>">
+            </div>
+            <div class="text-right form-group">
+                <button class="btn btn-xs btn-primary">Save</button>
+                <a href="/posts" class="btn btn-xs btn-danger">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,24 +1,26 @@
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>E-Mail</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>E-Mail</th>
+            <th>Opções</th>
+        </tr>
         </thead>
         <tbody>
-            <?php
-                $tr = '';
-                foreach ($this->view->posts as $val) {
-                    $tr .= "<tr>";
-                    $tr .= "<td>{$val->id}</td>";
-                    $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
-                    $tr .= "<td>{$val->email}</td>";
-                    $tr .= "</tr>";
-                }
-                echo $tr;
-            ?>
+        <?php
+        $tr = '';
+        foreach ($this->view->posts as $val) {
+            $tr .= "<tr>";
+            $tr .= "<td>{$val->id}</td>";
+            $tr .= "<td><a href=\"/post/{$val->id}/show\">{$val->nome}</a></td>";
+            $tr .= "<td>{$val->email}</td>";
+            $tr .= "<td class=\"alert-info\"><a class=\"btn btn-xs btn-warning\" href=\"/post/{$val->id}/edit\"><i class=\"glyphicon glyphicon-edit\"></i>&nbsp;&nbsp;Edit</a>&nbsp;<a class=\"btn btn-xs btn-danger\" href=\"/post/{$val->id}/delete\" onclick=\"return confirm('Deseja deletar esse contato?')\"><i class=\"glyphicon glyphicon-trash\"></i>&nbsp;&nbsp;Delete</a></td>";
+            $tr .= "</tr>";
+        }
+        echo $tr;
+        ?>
         </tbody>
     </table>
 </div>
